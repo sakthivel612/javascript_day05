@@ -1,92 +1,40 @@
-// Compare two JSON have the same properties without order.
-
-// let obj1 = {name:"Person 1", age:5};
-// let obj2 = {age:5, name:"Person 1"}
-
-// let student_1 = [
-//   {
-//     name: "sakthivel",
-//     age: 22,
-//   },
-// ];
-
-// let student_2 = [
-//   {
-//     age: 22,
-//     name: "sakthivel",
-//   },
-// ];
+let Resume = {
+  "Name": "Sakthivel.k",
+  "Age": "22",
+  "Phone_number": "+91 -------",
+  "Gender": "Male",
+  "Nationality": "Hindhu",
+  "Email": "---@gmail.com",
+  "Languages": "Tamil,English",
+  "Address": "------",
+  "Professional_Summary": "• Believes in continuous learning and possesses an innovative approach, • Strong interpersonal and communication skills to work in a team",
+  "Programming_Skills": "HTML, CSS, JAVASCRIPT, REACTJS, NODEJS, MONGODB, MYSQL",
+  "Intrests": "Web Developing and web Designing",
+  "Objective": "I aspire to have a career where I will experience new challenges at every point of work and would convert all my abilities, knowledge, and interest into a meaningful contribution to the company.",
+  "Education_deatil_1": "Bsc(Computer science)",
+  "Education_deatil_2": "Msc(Computer science)",
+  "Experience": "1 year",
+  "Project_1": "Building Google Document Clone with MERN Stack",
+  "Project_2": "Building FOOD Clone with MERN Stack"
+}
 
 
 // For of loop
-let student_1 = [
-  {
-    name: "sakthivel",
-    age: 22,
-  },
-];
-
-let student_2 = [
-  {
-    age: 22,
-    name: "sakthivel",
-  },
-];
-
-let isEqual = true;
-
-for (const obj1 of student_1) {
-  let found = false;
-
-  for (const obj2 of student_2) {
-    if (JSON.stringify(obj1) === JSON.stringify(obj2)) {
-      found = true;
-      break;
-    }
-  }
-
-  if (!found) {
-    isEqual = false;
-    break;
-  }
+// Using for of loop with Resume
+for (let [key, value] of Object.entries(Resume)) {
+  console.log(`${key}: ${value}`);
 }
-
-console.log(isEqual ? "Arrays are equal" : "Arrays are not equal");
-
-// For Loop
-// Using for loop with student_1
-for (let i = 0; i < student_1.length; i++) {
-  console.log(student_1[i].name, student_1[i].age);
-}
-
-// Using for loop with student_2
-for (let i = 0; i < student_2.length; i++) {
-  console.log(student_2[i].name, student_2[i].age);
-}
-
 
 
 // For In:
-// Using for in loop with student_1
-for (let i in student_1[0]) {
-  console.log(i, student_1[0][i]);
+// Using for in loop with Resume
+for (let key in Resume) {
+  console.log(`${key}: ${Resume[key]}`);
 }
-
-// Using for...in loop with student_2
-for (let i in student_2[0]) {
-  console.log(i, student_2[0][i]);
-}
-
-
 
 
 // For Each:
-// Using forEach loop with student_1
-student_1.forEach((student) => {
-  console.log(student.name, student.age);
-});
-
-// Using forEach loop with student_2
-student_2.forEach((student) => {
-  console.log(student.name, student.age);
+// Using forEach loop with Resume
+Object.keys(Resume).forEach(key => {
+  console.log(`${key}: ${Resume[key]}`);
 });
